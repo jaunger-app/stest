@@ -1,4 +1,4 @@
-name: commit_checkout
+name: branch_checkout
 on: [push]
 jobs:
   external-workflow:
@@ -9,4 +9,4 @@ jobs:
           repository: abystoma/external-workflow
           ref: branch
       - name: Greetings
-        run: echo "$(<greeting.txt)"
+        run: echo "$(<greetings.txt)"
