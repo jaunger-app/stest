@@ -1,17 +1,17 @@
-name: Combine the words
-on: [push]
+name: Literals
+
+on: [push, pull_request]
 
 jobs:
-  job1:
-    env:
-      BUILD: build
-    runs-on: windows-latest
-    steps: 
-      - name: step 1
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run expressions
+        run: |
+          echo "Event name: ${{ github.event_name }}" # String literal
+          echo "Is it a push event? ${{ github.event_name == 'push' }}" # Boolean literal
+          echo "Quote: ${{ 'It''s a sunny day' }}" # String literal with a single quote
+          echo "Number literal: ${{ 12345 }}" 
+          echo "Is OPTIONAL_ENV_VAR null?: ${{ env.OPTIONAL_ENV_VAR == null }}" 
         env:
-          TEST: test
-        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST pipeline"   
-      - name: step 2
-        env:
-          DEPLOY: deployment
-        run: echo "GitHub Actions is a CI/CD platform that allows you to automate your $env:BUILD $env:TEST and $env:DEPLOY pipeline"   
+          OPTIONAL_ENV_VAR: 'Test' # String literal
