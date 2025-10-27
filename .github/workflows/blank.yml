@@ -1,12 +1,12 @@
-name: RUNNER
+name: Even or Odd?
 on: push
 jobs:
-  if-Windows-else:
+  zeroone:
     runs-on: ubuntu-latest
     steps:
-      - name: condition 1
-        if: runner.os == 'Windows'
-        run: echo "The operating system on the runner is $env:RUNNER_OS."
-      - name: condition 2
-        if: runner.os != 'Windows'
-        run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS.
+      - id: gen-num
+        run: echo "num=22 % 2" 
+      - if: steps.gen-num.outputs.num == 0
+        run: echo "The number is even"
+      - if: steps.gen-num.outputs.num == 1
+        run: echo "The number is odd"
