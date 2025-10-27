@@ -1,12 +1,18 @@
-name: Conditional Workflow
+name: Successful jobs 
 on: push
 jobs:
-  number_generator:
-    runs-on: ubuntu-latest
+  Job1:
+    runs-on: windows-latest
     steps:
-      - id: generator
-        run: echo "num=$RANDOM % 2" 
-      - if: steps.generator.outputs.num == 0
-        run: echo zero
-      - if: steps.generator.outputs.num == 1
-        run: echo one
+      - run: echo one
+  Job2:
+    runs-on: windows-latest
+    needs: job1
+    if: ${{ false }}
+    steps:
+      - run: echo two
+  Job3:
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - run: echo three
