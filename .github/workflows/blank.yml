@@ -1,18 +1,12 @@
-name: Successful jobs 
+name: RUNNER
 on: push
 jobs:
-  Job1:
-    runs-on: windows-latest
-    steps:
-      - run: echo one
-  Job2:
-    runs-on: windows-latest
-    needs: job1
-    if: ${{ false }}
-    steps:
-      - run: echo two
-  Job3:
+  if-Windows-else:
     runs-on: ubuntu-latest
-    needs: job2
     steps:
-      - run: echo three
+      - name: condition 1
+        if: runner.os == 'Windows'
+        run: echo "The operating system on the runner is $env:RUNNER_OS."
+      - name: condition 2
+        if: runner.os != 'Windows'
+        run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS.
