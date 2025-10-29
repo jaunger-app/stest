@@ -4,6 +4,8 @@ jobs:
   zeroone:
     runs-on: ubuntu-latest
     steps:
+      - name: test
+        run: echo $GITHUB_ACTION_REPOSITORY 
       - id: gen-num
         run: echo "num=22 % 2" 
       - if: steps.gen-num.outputs.num == 0
