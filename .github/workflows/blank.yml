@@ -15,6 +15,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: "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"
           LABEL: 'autocoder'
-          REPOSITORY: "https://github.com/jaunger-app/stest/"
+          REPOSITORY: "stest/"
           ISSUE_NUMBER: "test"
           SCRIPT_PATH: ./scripts/script.sh
