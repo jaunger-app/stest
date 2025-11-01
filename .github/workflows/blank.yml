@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: AutoCoder Composite Action
-        uses: jaunger-app/autocoder-action@v1
+        uses: jaunger-app/autocoder-action@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: "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"
