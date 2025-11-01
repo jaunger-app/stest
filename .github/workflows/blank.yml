@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: AutoCoder Composite Action
-        uses: jaunger-app/AutoCoder@v4
+        uses: jaunger-app/AutoCoder@v5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: "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"
