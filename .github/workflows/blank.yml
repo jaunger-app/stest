@@ -17,4 +17,4 @@ jobs:
           LABEL: 'autocoder'
           REPOSITORY: "https://github.com/jaunger-app/stest/"
           ISSUE_NUMBER: "test"
-          SCRIPT_PATH: ./script/scripts.sh
+          SCRIPT_PATH: script/scripts.sh
