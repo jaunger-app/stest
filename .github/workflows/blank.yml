@@ -1,14 +1,20 @@
-name: Even or Odd?
-on: push
+name: AutoCodeGen
+on:
+  issues:
+    types: [labeled]
+
 jobs:
-  zeroone:
+  generate_code:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: echo $GITHUB_REPOSITORY 
-      - id: gen-num
-        run: echo "num=22 % 2" 
-      - if: steps.gen-num.outputs.num == 0
-        run: echo "The number is even"
-      - if: steps.gen-num.outputs.num == 1
-        run: echo "The number is odd"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: AutoCoder Composite Action
+        uses: jaunger-app/autocoder-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: "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"
+          LABEL: 'autocoder'
+          REPOSITORY: "https://github.com/jaunger-app/stest/"
+          ISSUE_NUMBER: "test"
+          SCRIPT_PATH: ./script/scripts.sh
