@@ -13,7 +13,7 @@ jobs:
         uses: jaunger-app/AutoCoder@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: "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"
+          OPENAI_API_KEY: "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"
           LABEL: 'autocoder'
           REPOSITORY: "https://github.com/jaunger-app/stest/"
           ISSUE_NUMBER: "test"
